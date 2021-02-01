@@ -28,4 +28,4 @@ Your second task is create very simple BaseSearch component following below inst
 1.  Define props: icon, text. placeholder.
 2.  Emit event to parent component (Home) from BaseSearch component
 
-Now, you can go to branch named `task-2` and verify your solution and move forward. 
+Now, you can go to branch named `task-4` and verify your solution and move forward. 
