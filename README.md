@@ -23,4 +23,9 @@ npm run lint
 
 ## TASK
 
-Now, you can go to branch named `task-1` and verify your solution and move forward. 
+Your first task is create very simple BaseButton component following below instructions:
+
+1.  Define props: text, icon. Follow Vuejs patterns
+2.  Emit event to parent component (Home) from BaseButton component
+
+Now, you can go to branch named `task-2` and verify your solution and move forward. 
