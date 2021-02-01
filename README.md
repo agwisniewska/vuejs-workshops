@@ -25,8 +25,9 @@ npm run lint
 
 Your task is display countries now. 
 
-1. Add countries to template and inside loop pass country to BaseCard component
-2. Pass country prop to BaseCard
-3. Add event emitter inside BaseCard and handle it inside Home component
+1. Add value, items, label props to BaseDropdown 
+2. Add event emitter insde BaseDropdown
+3. useCountryFilter hook which returns updateFilters and filter value
+4. use useCountryFilter, pass filter, updateFilters and regions to BaseDropdown
 
-Now, you can go to branch named `task-4` and verify your solution and move forward. 
+Now, you can go to branch named `task-5` and verify your solution and move forward. 
