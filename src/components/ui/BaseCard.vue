@@ -1,23 +1,31 @@
 <template>
-  <v-card class="mt-5 mb-5" max-width="350" >
-    <v-img src="#" height="200px"></v-img>
+  <v-card class="mt-5 mb-5" max-width="344" @click="clickCard(country.name)">
+    <v-img :src="country.flag" height="200px"></v-img>
 
-    <v-card-title> Title </v-card-title>
+    <v-card-title> {{ country.name }} </v-card-title>
     <v-divider></v-divider>
     <v-card-text>
-     Text
+      <p><b> Population </b> {{ country.population }}</p>
+      <p><b> Region </b> {{ country.region }}</p>
+      <p><b> Capital </b> {{ country.capital }}</p>
     </v-card-text>
   </v-card>
 </template>
 <script>
 export default {
   props: {
-    
+    country: {
+      type: Object,
+      required: true
+    }
   },
-  setup() {
-   return {
-     
-   }
+  setup(props, context) {
+    const clickCard = country => {
+      context.emit("clicked", country);
+    };
+    return {
+      clickCard
+    };
   }
 };
 </script>

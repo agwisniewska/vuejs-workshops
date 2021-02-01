@@ -14,7 +14,16 @@
           <base-dropdown> </base-dropdown>
         </v-row>
         <v-row class="pt-5 pb-5  d-flex-container justify-space-between">
-          <base-card></base-card>
+            <v-col
+            v-for="country in countriesMatchingSearchQuery"
+            :key="country.name"
+            cols="4"
+          >
+            <base-card
+              :country="country"
+              @clicked="redirectToCountry"
+            ></base-card>
+          </v-col>
         </v-row>
       </v-container>
     </v-main>
@@ -29,6 +38,7 @@ import BaseSearch from '../components/ui/BaseSearch.vue';
 import TheHeader from '../components/layout/TheHeader.vue';
 import BaseDropdown from '../components/ui/BaseDropdown.vue';
 import useCountryNameSearch from "../hooks/useCountryNameSearch";
+import router from "../router";
 
 export default {
   components: { BaseCard, BaseSearch, TheHeader, BaseDropdown },
@@ -47,11 +57,17 @@ export default {
     const {
       searchQuery,
       search,
+       countriesMatchingSearchQuery
     } = useCountryNameSearch(countries);
 
+  const redirectToCountry = country => {
+      router.push(country);
+    };
     return {
       searchQuery,
       search,
+     countriesMatchingSearchQuery,
+     redirectToCountry
      
     };
   },
