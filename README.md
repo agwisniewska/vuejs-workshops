@@ -1,4 +1,4 @@
-# rest-countries
+# Vuejs workshops
 
 ## Project setup
 ```
@@ -20,5 +20,7 @@ npm run build
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## TASK
+
+Now, you can go to branch named `task-1` and verify your solution and move forward. 
