@@ -23,9 +23,10 @@ npm run lint
 
 ## TASK
 
-Your second task is create very simple BaseSearch component following below instructions and Vuejs patterns
+Your task is display countries now. 
 
-1.  Define props: icon, text. placeholder.
-2.  Emit event to parent component (Home) from BaseSearch component
+1. Add countries to template and inside loop pass country to BaseCard component
+2. Pass country prop to BaseCard
+3. Add event emitter inside BaseCard and handle it inside Home component
 
 Now, you can go to branch named `task-4` and verify your solution and move forward. 
