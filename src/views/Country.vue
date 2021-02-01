@@ -4,7 +4,8 @@
       <the-header></the-header>
       <v-container>
         <v-row class="pt-5 pb-5">
-          <base-button> </base-button>
+                  <base-button text="Back" @clicked="back"> </base-button>
+
         </v-row>
         <v-row class="pt-5 pb-5">
           <div class=" d-flex"></div>
@@ -23,8 +24,15 @@ export default {
     TheHeader,
     BaseButton,
   },
-  setup() {
-    return {};
+  setup(props, context) {
+
+     const back = () => {
+      context.root.$router.go(-1);
+      };
+
+    return {
+      back,
+    };
   },
 };
 </script>
