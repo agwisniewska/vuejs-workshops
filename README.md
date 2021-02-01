@@ -25,9 +25,8 @@ npm run lint
 
 Your task is display countries now. 
 
-1. Add value, items, label props to BaseDropdown 
-2. Add event emitter insde BaseDropdown
-3. useCountryFilter hook which returns updateFilters and filter value
-4. use useCountryFilter, pass filter, updateFilters and regions to BaseDropdown
+1. Add redirection to country page on BaseCard 
+2. Use props params which is passed inside router.js to fetch country data onMounted
+3. Use country object inside template
 
-Now, you can go to branch named `task-5` and verify your solution and move forward. 
+Now, you can go to branch named `final` and verify your solution and move forward. 
