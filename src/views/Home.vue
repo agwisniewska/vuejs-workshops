@@ -11,7 +11,12 @@
             @searched="search"
             :placeholderText="'Search for a country'"
           ></base-search>
-          <base-dropdown> </base-dropdown>
+           <base-dropdown
+            @changed="updateFilters"
+            :value="filter.value"
+            label="Filter by Region"
+            :items="regions"
+          ></base-dropdown>
         </v-row>
         <v-row class="pt-5 pb-5  d-flex-container justify-space-between">
             <v-col
@@ -32,12 +37,14 @@
 
 <script>
 import { fetchCountries } from "../api/countries";
-import { ref, onMounted } from "@vue/composition-api";
+import { ref, onMounted, watch } from "@vue/composition-api";
 import BaseCard from '../components/ui/BaseCard';
 import BaseSearch from '../components/ui/BaseSearch.vue';
 import TheHeader from '../components/layout/TheHeader.vue';
 import BaseDropdown from '../components/ui/BaseDropdown.vue';
 import useCountryNameSearch from "../hooks/useCountryNameSearch";
+import useCountryFilters from "../hooks/useCountryFilters";
+
 import router from "../router";
 
 export default {
@@ -46,8 +53,6 @@ export default {
   setup() {
 
     const regions = ref(["Europe", "Africa", "Americas", "Asia", "Oceania"]);
-
-
     const countries = ref([]);
     const getCountries = async filter => {
       countries.value = await fetchCountries(filter);
@@ -60,6 +65,12 @@ export default {
        countriesMatchingSearchQuery
     } = useCountryNameSearch(countries);
 
+      const { updateFilters, filter } = useCountryFilters(
+      countriesMatchingSearchQuery
+    );
+
+    watch(filter, getCountries);
+
   const redirectToCountry = country => {
       router.push(country);
     };
@@ -67,7 +78,10 @@ export default {
       searchQuery,
       search,
      countriesMatchingSearchQuery,
-     redirectToCountry
+     redirectToCountry,
+     updateFilters,
+     filter,
+     regions,
      
     };
   },
